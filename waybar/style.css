@@ -1,42 +1,59 @@
+/* General */
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
-  font-weight: bold;
-  font-size: 11px;
-  color: rgba(255,255,255,0.85);
-  background: transparent;
-  border: none;
+  font-size: 12px;
+  font-weight: bold; /* added bold */
+  min-height: 20px;
+  color: #ffffff;
+  background: transparent; /* no box backgrounds anywhere */
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
 }
 
+/* Bar background */
 window#waybar {
-  background: rgba(0,0,0,0.6);
-  border: none;
-  margin: 0;
-  padding: 0;
+  background: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+  color: #ffffff;
 }
 
-#workspaces {
-  margin-left: 0;
-}
-
+/* Remove all module boxes, just inline content */
+#custom-separator,
+#cpu,
+#memory,
+#pulseaudio,
+#backlight,
+#tray,
+#battery,
+#clock,
+#custom-power,
 #workspaces button {
   background: transparent;
-  color: rgba(255,255,255,0.85);
-  margin: 0;
-  padding: 0 4px;
-  border-radius: 0;
+  padding: 0px 3px;
+  margin: 0px 2px;
+  border-radius: 0px;
+  transition: color 0.2s;
+  font-weight: bold; /* ensure bold applies to modules too */
 }
 
+/* Hover effect for clickable items */
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover,
+#custom-power:hover,
+#workspaces button:hover {
+  color: #d4a373; /* subtle highlight on hover */
+}
+
+/* Active workspace */
 #workspaces button.active {
-  color: rgba(255,255,255,1);
-  text-shadow: 0 0 4px rgba(255,255,255,0.8);
+  color: #b5835a; /* highlight current workspace */
 }
 
-#window {
-  padding: 0 8px;
-  color: rgba(255,255,255,0.9);
-}
-
-#clock, #battery, #cpu, #memory {
-  padding: 0 4px;
-  color: rgba(255,255,255,0.85);
+/* Battery charging color */
+#battery.charging {
+  color: #0ac41f;
 }
