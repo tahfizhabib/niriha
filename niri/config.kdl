@@ -72,7 +72,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
-    gaps 10
+    gaps 7
 
     center-focused-column "never"
 
@@ -86,16 +86,16 @@ layout {
     focus-ring {
         width 1.5
 
-        active-color "#FFFFFF"
+        active-color "#00CCCC"
 
-        inactive-color "#AAAA00"
+        inactive-color "#505050"
     }
 border {
     off
     width 1.5
     active-color "#ffffff"    // bright yellow for active window border
     inactive-color "FFFFFF"  // darker yellow for inactive window border
-    urgent-color "#FFAA00"    // orange-yellow for urgent windows    
+    urgent-color "#FFAA00"    // orange-yellow for urgent windows
 
     }
 
@@ -217,7 +217,7 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+D hotkey-overlay-title="Run an Application: wallker" { spawn "walker"; }
 
@@ -466,7 +466,7 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
-}	
+}
 
 
 output "DP-1" {
@@ -477,11 +477,9 @@ output "DP-1" {
 spawn-at-startup "elephant"
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
-
+spawn-sh-at-startup "swaybg -i ~/Wallpapers/wall1.jpg"
 
 window-rule {
     match is-active=false
     opacity 0.9
 }
-
-
